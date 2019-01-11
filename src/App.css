@@ -1,32 +1,94 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+}
+
 .App {
-  text-align: center;
+    background: linear-gradient(to left, #f2fcfe, #1c92d2);
+    height: 100vh;
+}
+/* HEADER */
+/* HEADER */
+/* HEADER */
+
+header {
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.header-logo {
+    padding: 10px;
+    display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header-logo a {
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+    justify-content: center;
+    display: block;
 }
 
-.App-link {
-  color: #61dafb;
+/* LocationInput */
+/* LocationInput */
+/* LocationInput */
+
+.container {
+    width: 800px;
+    /* margin: 0 auto; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text-center {
+    text-align: center;
+}
+
+.loc-container {
+
+}
+
+.getweather {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.locinput {
+    max-width: 200px;
+    height: 40px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    /* margin: 0 auto; */
+    display: flex;
+}
+
+.btn {
+    max-width: 150px;
+    background-color: #5ed806;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    /* margin: 0 auto; */
 }
