@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import 'normalize.css';
 import './App.css';
+import api  from './utils/api';
 import PropTypes from 'prop-types';
 
 class LocationInput extends Component {
@@ -73,11 +74,12 @@ class App extends Component {
     }
     handleSubmit(location) {
         console.log('location: ' + location);
+
+        api.fetchCurrentWeather(location);
         // this.setState(_ => {
         //
         // });
     }
-
 
     render() {
         return (
