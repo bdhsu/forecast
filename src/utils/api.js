@@ -9,8 +9,10 @@ module.exports = {
         var link = window.encodeURI(baseURL + "weather?q=" + location + params);
         return axios.get(link)
             .then(function(results) {
-                console.log('current weather results: ' + results);
+                // console.log('current weather results: ' + results);
                 console.log(JSON.stringify(results["data"]["weather"]));
+                console.log(results.data.weather);
+                return results.data.weather;
             });
     },
     fetchFiveDayForecast: function(location) {
