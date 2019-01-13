@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import LocationInput from './LocationInput';
 import PropTypes from 'prop-types';
-import api  from './utils/api';
+
+// components
+import LocationInput from './LocationInput';
+import api from './utils/api';
 
 class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            location: '',
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    handleSubmit(location) {
+        this.props.history.push({
+            pathname: 'forecast',
+            search: '?city=' + location,
+        });
+    }
     render() {
         return (
             <div className="container">

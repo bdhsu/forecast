@@ -15,7 +15,7 @@ body {
 
 .App {
     background: linear-gradient(to left, #f2fcfe, #1c92d2);
-    height: 100vh;
+    min-height: 100vh;
 }
 /* HEADER */
 /* HEADER */
