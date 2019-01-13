@@ -4,64 +4,10 @@ import 'normalize.css';
 import './App.css';
 import api  from './utils/api';
 import PropTypes from 'prop-types';
-
-class LocationInput extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            location: '',
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-    handleChange(event) {
-        var value = event.target.value;
-
-        this.setState(_ => {
-            return {
-                location: value,
-            }
-        });
-    }
-    handleSubmit(event) {
-        event.preventDefault();
-
-        this.props.onSubmit(
-            this.state.location,
-        );
-    }
-    render() {
-        return (
-            <div className="loc-container">
-                <form className="getweather" onSubmit={this.handleSubmit} style={this.props.style}>
-                    <input
-                        id="location"
-                        placeholder="San Francisco, CA"
-                        type="text"
-                        className="locinput"
-                        autoComplete="off"
-                        value={this.state.location}
-                        onChange={this.handleChange}
-                    />
-                    <button
-                        className="btn"
-                        type="submit"
-                        disabled={!this.state.location}>
-                            Get Weather
-                    </button>
-                </form>
-            </div>
-        )
-    }
-}
-
-// LocationInput.propTypes = {
-//     location: PropTypes.string.isRequired,
-// }
-
-
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import Home from './Home';
+import Forecast from './Forecast';
+import LocationInput from './LocationInput';
 
 class App extends Component {
     constructor(props) {
@@ -75,10 +21,8 @@ class App extends Component {
     handleSubmit(location) {
         console.log('location: ' + location);
 
-        api.fetchCurrentWeather(location);
-        // this.setState(_ => {
-        //
-        // });
+        // api.fetchCurrentWeather(location);
+        api.fetchFiveDayForecast(location);
     }
 
     render() {
@@ -90,13 +34,12 @@ class App extends Component {
                     </div>
                     <LocationInput style={{flexDirection: "row"}} />
                 </header>
-                <div className="container">
-                    <h1 className="text-center">Enter a City and State</h1>
-                    <LocationInput
-                        style={{flexDirection: "column"}}
-                        onSubmit={this.handleSubmit}
-                    />
-                </div>
+                <Router>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/forecast" component={Forecast} />
+                    </Switch>
+                </Router>
             </div>
         );
     }
