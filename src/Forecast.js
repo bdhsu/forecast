@@ -8,32 +8,58 @@ class Forecast extends Component {
         super(props);
 
         this.state = {
+            error: null,
             location: null,
+            weather: null,
             loading: true,
         }
     }
     componentDidMount() {
         var location = queryString.parse(this.props.location.search);
-        this.setState(_ => {
-            return {
-                location: location,
-                loading: false,
-            }
-        });
+        api.fetchFiveDayForecast(location["city"])
+            .then(function(results) {
+                if(results === null) {
+                    this.setState(_ => {
+                        return {
+                            error: "seems to be an error",
+                            loading: false,
+                        }
+                    })
+                }
+
+                this.setState(_ => {
+                    return {
+                        error: null,
+                        location: location["city"],
+                        weather: results.list["0"],
+                        loading: false,
+                    }
+                });
+            }.bind(this));
     }
     render() {
+        var error = this.state.error;
         var location = this.state.location;
+        var weather = this.state.weather;
         var loading = this.state.loading;
 
         if(loading === true) {
             return <div>loading...</div>
         }
+
+        if(error) {
+            return (
+                <div>
+                    <p>{error}</p>
+                </div>
+            )
+        }
+
         return (
 
 
             <div className="container">
-                {/* {JSON.stringify(location["city"])} */}
-                {JSON.stringify(api.fetchCurrentWeather(location["city"]))}
+                {JSON.stringify(weather)}
             </div>
         )
     }

@@ -10,8 +10,8 @@ module.exports = {
         return axios.get(link)
             .then(function(results) {
                 // console.log('current weather results: ' + results);
-                console.log(JSON.stringify(results["data"]["weather"]));
-                console.log(results.data.weather);
+                // console.log(JSON.stringify(results["data"]["weather"]));
+                // console.log(results.data.weather);
                 return results.data.weather;
             });
     },
@@ -19,8 +19,9 @@ module.exports = {
         var link = window.encodeURI(baseURL + "forecast?q=" + location + ",us" + params);
         return axios.get(link)
             .then(function(results) {
-                console.log('forecast results: ' + results);
-                console.log(JSON.stringify(results));
+                // console.log('forecast results: ' + results);
+                // console.log(JSON.stringify(results));
+                return results.data;
             });
     }
 }
