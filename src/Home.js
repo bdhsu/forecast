@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import LocationInput from './LocationInput';
 import PropTypes from 'prop-types';
 import api  from './utils/api';
 
