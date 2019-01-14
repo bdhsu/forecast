@@ -74,7 +74,7 @@ class Forecast extends Component {
 
         return (
             <div className="container">
-                {JSON.stringify(weather["0"])}
+                {/* {JSON.stringify(weather["0"])} */}
                 {/* {JSON.stringify(weather["0"])} */}
                 {/* {JSON.stringify(dateHelper.convertTimestamp(weather[0].dt))}
                 {JSON.stringify(dateHelper.convertTimestamp(weather[1].dt))}
