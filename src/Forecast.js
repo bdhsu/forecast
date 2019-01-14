@@ -74,17 +74,6 @@ class Forecast extends Component {
 
         return (
             <div className="container">
-                {/* {JSON.stringify(weather["0"])} */}
-                {/* {JSON.stringify(weather["0"])} */}
-                {/* {JSON.stringify(dateHelper.convertTimestamp(weather[0].dt))}
-                {JSON.stringify(dateHelper.convertTimestamp(weather[1].dt))}
-                {JSON.stringify(dateHelper.convertTimestamp(weather[2].dt))}
-                {JSON.stringify(dateHelper.convertTimestamp(weather[3].dt))}
-                {JSON.stringify(dateHelper.convertTimestamp(weather[4].dt))}
-                {JSON.stringify(dateHelper.convertTimestamp(weather[5].dt))}
-                {JSON.stringify(dateHelper.convertTimestamp(weather[6].dt))}
-                {JSON.stringify(dateHelper.convertTimestamp(weather[7].dt))}
-                {JSON.stringify(dateHelper.convertTimestamp(weather[8].dt))} */}
                 {weather.map(function(day) {
                     return <Day onClick={_ => this.handleClick(day)} key={day.dt} day={day}/>
                 }, this)}
