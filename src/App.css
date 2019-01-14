@@ -11,10 +11,13 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+
 }
 
 .App {
-    background: linear-gradient(to left, #f2fcfe, #1c92d2);
+    /* background: linear-gradient(to left, #f2fcfe, #1c92d2); */
+    /* background: yellow; */
     min-height: 100vh;
 }
 /* HEADER */
@@ -91,4 +94,34 @@ header {
     border-radius: 5px;
     color: white;
     /* margin: 0 auto; */
+}
+
+/* Forecast */
+/* Forecast */
+/* Forecast */
+
+.day-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.day-item {
+    flex-direction: column;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.day-pic {
+    display: block;
+    margin: 0 auto;
+    height: 100px;
+}
+
+.day-title {
+    display: flex;
+    font-size: 28px;
+    font-weight: 300;
 }

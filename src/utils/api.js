@@ -1,8 +1,18 @@
 var axios = require('axios');
 
 var baseURL = "http://api.openweathermap.org/data/2.5/";
-var apikey = "8fad34166684286360dc6d77073bd5e5";
+var apikey = "b714ec74bbab5650795063cb0fdf5fbe";
+// var apikey = "8fad34166684286360dc6d77073bd5e5";
 var params = "&APPID=" + apikey;
+
+// function getQueryStringData (city) {
+//     return {
+//         q: city,
+//         type: 'accurate',
+//         APPID: apikey,
+//         cnt: 5
+//     }
+// }
 
 module.exports = {
     fetchCurrentWeather: function(location) {
@@ -16,7 +26,7 @@ module.exports = {
             });
     },
     fetchFiveDayForecast: function(location) {
-        var link = window.encodeURI(baseURL + "forecast?q=" + location + ",us" + params);
+        var link = window.encodeURI(baseURL + "forecast/daily?q=" + location + ",us" + "&cnt=5" + params);
         return axios.get(link)
             .then(function(results) {
                 // console.log('forecast results: ' + results);
