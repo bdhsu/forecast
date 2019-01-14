@@ -5,15 +5,6 @@ var apikey = "b714ec74bbab5650795063cb0fdf5fbe";
 // var apikey = "8fad34166684286360dc6d77073bd5e5";
 var params = "&APPID=" + apikey;
 
-// function getQueryStringData (city) {
-//     return {
-//         q: city,
-//         type: 'accurate',
-//         APPID: apikey,
-//         cnt: 5
-//     }
-// }
-
 module.exports = {
     fetchCurrentWeather: function(location) {
         var link = window.encodeURI(baseURL + "weather?q=" + location + params);
