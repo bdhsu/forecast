@@ -125,3 +125,21 @@ header {
     font-size: 28px;
     font-weight: 300;
 }
+
+/* details */
+/* details */
+/* details */
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.details-container p {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: 300;
+}

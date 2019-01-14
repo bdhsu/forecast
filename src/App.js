@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Home from './Home';
 import Forecast from './Forecast';
 import LocationInput from './LocationInput';
+import Details from './Details';
 import api  from './utils/api';
 
 
@@ -33,14 +34,15 @@ class App extends Component {
                             <a href="/" >Forecast</a>
                         </div>
 
-                        <LocationInput
+                        {/* <LocationInput
                             style={{flexDirection: "row"}}
                             onSubmit={this.handleSubmit}
-                        />
+                        /> */}
                     </header>
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/forecast" component={Forecast} />
+                        <Route path="/details/:city" component={Details} />
                     </Switch>
                 </div>
             </Router>

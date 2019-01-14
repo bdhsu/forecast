@@ -3,17 +3,9 @@ import queryString from 'query-string';
 // components
 import api from './utils/api';
 import dateHelper from './utils/dateHelper';
+import Day from './Day';
 
-const Day = (props) => {
-    var date = props.day.dt;
-    var pic = props.day.weather["0"].icon;
-    return (
-        <div className="day-item">
-            <img className="day-pic" src={require("./img/weather-icons/" + pic + ".svg")} alt="" />
-            <p className="day-title">{dateHelper.convertTimestamp(date)}</p>
-        </div>
-    )
-}
+
 
 class Forecast extends Component {
     constructor(props) {
@@ -25,6 +17,8 @@ class Forecast extends Component {
             weather: null,
             loading: true,
         }
+
+        this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount() {
         var location = queryString.parse(this.props.location.search);
@@ -50,14 +44,15 @@ class Forecast extends Component {
             }.bind(this));
     }
 
-    // handleClick(location) {
-    //     console.log(JSON.stringify(location));
-    //
-    //     this.props.history.push({
-    //         pathname: 'forecast',
-    //         search: '?city=' + location,
-    //     });
-    // }
+    handleClick(day) {
+        console.log('hi');
+        console.log(JSON.stringify(day));
+
+        this.props.history.push({
+            pathname: '/details/' + this.state.location,
+            state: day,
+        });
+    }
 
     render() {
         var error = this.state.error;
@@ -90,12 +85,9 @@ class Forecast extends Component {
                 {JSON.stringify(dateHelper.convertTimestamp(weather[6].dt))}
                 {JSON.stringify(dateHelper.convertTimestamp(weather[7].dt))}
                 {JSON.stringify(dateHelper.convertTimestamp(weather[8].dt))} */}
-                <div className="day-container">
-                    {weather.map(function(day) {
-                        return <Day day={day}/>
-                    }, this)}
-                </div>
-
+                {weather.map(function(day) {
+                    return <Day onClick={_ => this.handleClick(day)} key={day.dt} day={day}/>
+                }, this)}
             </div>
         )
     }
