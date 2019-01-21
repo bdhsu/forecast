@@ -35,7 +35,7 @@ class LocationInput extends Component {
             <div className="getweather" style={this.props.style}>
                 <input
                     id="location"
-                    placeholder="San Francisco, CA"
+                    placeholder="San Francisco, California"
                     type="text"
                     className="locinput"
                     autoComplete="off"

@@ -15,6 +15,10 @@ body {
 
 }
 
+h1 {
+    margin-bottom: 0.3em;
+}
+
 .App {
     /* background: linear-gradient(to left, #f2fcfe, #1c92d2); */
     /* background: yellow; */
@@ -77,7 +81,7 @@ header {
 
 
 .locinput {
-    max-width: 200px;
+    max-width: 250px;
     height: 40px;
     padding: 10px;
     margin: 10px;
@@ -85,6 +89,7 @@ header {
     border: 1px solid gray;
     /* margin: 0 auto; */
     display: flex;
+    /* font-size: 12px; */
 }
 
 .btn {

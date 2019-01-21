@@ -33,11 +33,6 @@ class App extends Component {
                         <div className="header-logo">
                             <a href="/" >Forecast</a>
                         </div>
-
-                        {/* <LocationInput
-                            style={{flexDirection: "row"}}
-                            onSubmit={this.handleSubmit}
-                        /> */}
                     </header>
                     <Switch>
                         <Route exact path="/" component={Home} />
